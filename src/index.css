@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 180 100% 60%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 45 100% 60%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 180 100% 60%;
+
+    --primary: 320 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 180 60% 70%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 320 100% 60%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens - Neon on black */
+    --gradient-primary: linear-gradient(135deg, hsl(320 100% 50%) 0%, hsl(280 100% 55%) 30%, hsl(200 100% 50%) 70%, hsl(160 100% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsla(0 0% 10% / 0.95) 0%, hsla(0 0% 6% / 0.9) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(320 100% 55%) 0%, hsl(280 100% 60%) 100%);
+    --gradient-button-hover: linear-gradient(135deg, hsl(320 100% 50%) 0%, hsl(280 100% 55%) 100%);
+    
+    --shadow-card: 0 25px 50px -12px hsla(320 100% 50% / 0.25), 0 10px 20px -5px hsla(280 100% 50% / 0.2);
+    --shadow-button: 0 10px 30px -5px hsla(320 100% 60% / 0.5);
+    --shadow-glow: 0 0 80px hsla(320 100% 55% / 0.5);
+
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 230 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 25% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 100% 55%;
+    --primary-foreground: 230 25% 8%;
+
+    --secondary: 280 80% 65%;
+    --secondary-foreground: 230 25% 8%;
+
+    --muted: 230 20% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 320 85% 60%;
+    --accent-foreground: 230 25% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 20% 20%;
+    --input: 230 20% 20%;
+    --ring: 200 100% 55%;
+
+    --gradient-card: linear-gradient(180deg, hsla(230 25% 15% / 0.95) 0%, hsla(230 25% 12% / 0.85) 100%);
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-display);
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .gradient-bg {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .gradient-button {
+    background: var(--gradient-button);
+  }
+
+  .gradient-button:hover {
+    background: var(--gradient-button-hover);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
