@@ -1,0 +1,7 @@
+project_id = "sflshjwgsupjjaufkupn"
+
+[functions.text-to-sql]
+verify_jwt = false
+
+[functions.extract-table-from-image]
+verify_jwt = false
